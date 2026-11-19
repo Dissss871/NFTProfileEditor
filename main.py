@@ -1,34 +1,55 @@
-from typing import Any, List
 
-from base_plugin import BasePlugin
+from typing import Any, Dict, List
+
+from base_plugin import BasePlugin, MenuItemData, MenuItemType
 from ui.settings import Header, Text
 
 __id__ = "nft_profile_editor"
 __name__ = "NFT Profile Editor"
 __description__ = "Локальная NFT-коллекция профиля"
 __author__ = "Dissss871"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __icon__ = "msg_gift"
 __app_version__ = ">=12.5.1"
 __sdk_version__ = ">=1.4.4.3"
-__category__ = ["tools"]
+
 
 class NFTProfileEditor(BasePlugin):
 
     def on_plugin_load(self):
+        self.profile_item_id = self.add_menu_item(
+            MenuItemData(
+                menu_type=MenuItemType.PROFILE_ACTION_MENU,
+                text="NFT Profile Editor",
+                on_click=self.open_profile_editor,
+                icon="msg_gift",
+                subtext="Локальная NFT-коллекция",
+            )
+        )
         self.logger.info("NFT Profile Editor loaded")
+
+    def on_plugin_unload(self):
+        if self.profile_item_id:
+            self.remove_menu_item(self.profile_item_id)
+
+    def open_profile_editor(self, context: Dict[str, Any]):
+        keys = list(context.keys())
+        self.logger.info(
+            "NFT Profile Editor: profile context keys = %s",
+            keys
+        )
 
     def create_settings(self) -> List[Any]:
         return [
             Header(text="NFT Profile Editor"),
             Text(
                 text="Моя NFT-коллекция",
-                subtext="Здесь будет каталог существующих подарков",
+                subtext="Следующий этап — выбор существующих подарков",
                 icon="msg_gift",
             ),
             Text(
                 text="Локальный режим",
-                subtext="Коллекция отображается только на этом устройстве",
+                subtext="Изменения не отправляются на сервер Telegram",
                 icon="msg_info",
             ),
         ]
