@@ -16,7 +16,7 @@ __sdk_version__ = ">=1.4.4.3"
 
 class NFTProfileEditor(BasePlugin):
 
-       def on_plugin_load(self):
+    def on_plugin_load(self):
         self.add_menu_item(
             MenuItemData(
                 menu_type=MenuItemType.PROFILE_ACTION_MENU,
