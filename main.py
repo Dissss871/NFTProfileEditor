@@ -11,7 +11,7 @@ __author__ = "Dissss871"
 __version__ = "0.2.5"
 __icon__ = "msg_gift"
 __app_version__ = ">=12.5.1"
-__sdk_version__ = ">=1.4.4.3"
+__sdk_version__ = ">=1.4.6.4"
 
 
 class NFTProfileEditor(BasePlugin):
