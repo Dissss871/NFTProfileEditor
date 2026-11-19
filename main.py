@@ -1,4 +1,3 @@
-
 from typing import Any, List
 
 from base_plugin import BasePlugin
@@ -33,5 +32,3 @@ class NFTProfileEditor(BasePlugin):
                 icon="msg_info",
             ),
         ]
-
-
