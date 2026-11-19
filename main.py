@@ -16,7 +16,7 @@ __sdk_version__ = ">=1.4.4.3"
 
 class NFTProfileEditor(BasePlugin):
 
-    def on_plugin_load(self):
+       def on_plugin_load(self):
         self.add_menu_item(
             MenuItemData(
                 menu_type=MenuItemType.PROFILE_ACTION_MENU,
@@ -25,15 +25,16 @@ class NFTProfileEditor(BasePlugin):
                 icon="msg_gift",
             )
         )
-      self.logger.info("NFT Profile Editor loaded")
+        self.logger.info("NFT Profile Editor loaded")
 
     def open_profile_editor(self, context: Dict[str, Any]):
-    self.logger.info("NFT Profile Editor: click received")
+        self.logger.info("NFT Profile Editor: click received")
 
         fragment = context.get("fragment")
         BulletinHelper.show_info(
             "NFT Profile Editor: кнопка работает!",
             fragment
+        )
         )
 
     def create_settings(self) -> List[Any]:
