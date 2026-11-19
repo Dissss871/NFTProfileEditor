@@ -35,7 +35,6 @@ class NFTProfileEditor(BasePlugin):
             "NFT Profile Editor: кнопка работает!",
             fragment
         )
-        )
 
     def create_settings(self) -> List[Any]:
         return [
