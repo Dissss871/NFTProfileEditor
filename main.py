@@ -1,4 +1,3 @@
-
 from typing import Any, Dict, List
 
 from base_plugin import BasePlugin, MenuItemData, MenuItemType
@@ -12,6 +11,7 @@ __version__ = "0.2.0"
 __icon__ = "msg_gift"
 __app_version__ = ">=12.5.1"
 __sdk_version__ = ">=1.4.4.3"
+__category__ = ["tools"]
 
 
 class NFTProfileEditor(BasePlugin):
@@ -28,15 +28,10 @@ class NFTProfileEditor(BasePlugin):
         )
         self.logger.info("NFT Profile Editor loaded")
 
-    def on_plugin_unload(self):
-        if self.profile_item_id:
-            self.remove_menu_item(self.profile_item_id)
-
     def open_profile_editor(self, context: Dict[str, Any]):
-        keys = list(context.keys())
         self.logger.info(
-            "NFT Profile Editor: profile context keys = %s",
-            keys
+            "Profile context keys: %s",
+            list(context.keys())
         )
 
     def create_settings(self) -> List[Any]:
@@ -44,7 +39,7 @@ class NFTProfileEditor(BasePlugin):
             Header(text="NFT Profile Editor"),
             Text(
                 text="Моя NFT-коллекция",
-                subtext="Следующий этап — выбор существующих подарков",
+                subtext="Выбор существующих подарков появится здесь",
                 icon="msg_gift",
             ),
             Text(
