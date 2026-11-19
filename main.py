@@ -7,7 +7,7 @@ __id__ = "nft_profile_editor"
 __name__ = "NFT Profile Editor"
 __description__ = "Локальная NFT-коллекция профиля"
 __author__ = "Dissss871"
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 __icon__ = "msg_gift"
 __app_version__ = ">=12.5.1"
 __sdk_version__ = ">=1.4.4.3"
@@ -29,10 +29,16 @@ class NFTProfileEditor(BasePlugin):
         self.logger.info("NFT Profile Editor loaded")
 
     def open_profile_editor(self, context: Dict[str, Any]):
-    fragment = context.get("fragment")
-    BulletinHelper.show_info(
-        "NFT Profile Editor: кнопка работает!",
-        fragment
+    self.logger.info("NFT Profile Editor: click received")
+
+    try:
+        BulletinHelper.show_info(
+            "Кнопка NFT Profile Editor работает!"
+        )
+    except Exception:
+        self.logger.exception(
+            "Failed to show NFT Profile Editor bulletin"
+        )
     )
         )
 
