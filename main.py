@@ -5,9 +5,9 @@ from ui.settings import Header, Text
 from ui.bulletin import BulletinHelper
 
 __id__ = "nft_profile_editor"
-__name__ = "NFT Profile Editor"
+__name__ = "Local NFT"
 __description__ = "Локальная NFT-коллекция профиля"
-__author__ = "Dissss871"
+__author__ = "@Dissssocial"
 __version__ = "0.2.5"
 __icon__ = "msg_gift"
 __app_version__ = ">=12.5.1"
